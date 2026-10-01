@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecurePass Sentinel - Advanced Password Strength &amp; Entropy Defense</title>
+  <meta name="description" content="Evaluate password strength, calculate brute-force resistance, and generate cryptographically resilient passwords with real-time cybersecurity analytics.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2306b6d4'%3E%3Cpath d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="logo" onclick="showSection('home')">
+      <div class="logo-icon-wrap">🛡️</div>
+      <span>SecurePass <span class="logo-badge">Sentinel</span></span>
+    </a>
+
+    <div class="nav-right-group">
+      <ul class="nav-links">
+        <li><a id="nav-home" class="active" onclick="showSection('home')">Home</a></li>
+        <li><a id="nav-checker" onclick="showSection('checker')">Checker</a></li>
+        <li><a id="nav-generator" onclick="showSection('generator')">Generator</a></li>
+        <li><a id="nav-history" onclick="showSection('history')">Audit Log</a></li>
+        <li><a id="nav-faq" onclick="showSection('faq')">FAQ</a></li>
+      </ul>
+
+      <div class="status-pill" id="backendStatusPill" title="Connected to SecurePass Sentinel API">
+        <span class="status-dot"></span>
+        <span id="backendStatusText">Shield Active</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- 1. HOME SECTION -->
+    <section id="home" class="page-section active">
+      <div class="hero">
+        <div class="hero-pill-badge">
+          <span>⚡</span> Military-Grade Credential Defense &amp; Real-Time Heuristics
+        </div>
+        <h1>Fortify Your Digital Credentials</h1>
+        <p>Evaluate credential resilience against brute-force matrices, estimate crack-time, and engineer high-entropy passwords with zero data compromise.</p>
+        
+        <div class="hero-btns">
+          <button class="btn" onclick="showSection('checker')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            Analyze Password
+          </button>
+          <button class="btn btn-outline" onclick="showSection('generator')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Generate Key
+          </button>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">🔒</div>
+            <div class="metric-val">Zero-Knowledge</div>
+            <div class="metric-lbl">Privacy Architecture</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">⚡</div>
+            <div class="metric-val">100% Client-Safe</div>
+            <div class="metric-lbl">Evaluation Engine</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">🛡️</div>
+            <div class="metric-val">5 Indicators</div>
+            <div class="metric-lbl">Multi-Vector Analysis</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">⏱️</div>
+            <div class="metric-val">Brute-Force</div>
+            <div class="metric-lbl">Time-to-Crack Metric</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header-bar">
+          <h2>Why SecurePass Sentinel?</h2>
+          <span class="crack-estimate-badge">OWASP Compliant</span>
+        </div>
+        <p>Over 80% of confirmed data breaches involve stolen, weak, or reused passwords. SecurePass Sentinel integrates real-time pattern scoring, entropy distribution analysis, and brute-force crack-time estimation to help you stay ahead of credential-stuffing attacks.</p>
+      </div>
+    </section>
+
+    <!-- 2. CHECKER SECTION -->
+    <section id="checker" class="page-section">
+      <div class="card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Password Security Checker</h2>
+            <p>Type a password below to dynamically inspect entropy, vulnerability levels, and estimated crack time.</p>
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <input type="password" id="checkPasswordInput" placeholder="Enter password to analyze..." autocomplete="off" spellcheck="false">
+          <button type="button" class="toggle-password-btn" id="togglePasswordBtn" aria-label="Toggle password visibility">
+            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display: none;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858-5.908A9.954 9.954 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m-1.278-1.278A3 3 0 0012 9a3 3 0 00-3 3c0 .25.031.492.09.722" />
+              <line x1="3" y1="3" x2="21" y2="21" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Security Assessment Widget -->
+        <div class="strength-box">
+          <div class="strength-summary-row">
+            <div class="strength-header-left">
+              <div class="indicator-wrap">
+                <img id="strengthImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E" alt="Strength Indicator" class="indicator-img">
+              </div>
+              <div class="strength-text-details">
+                <h3>Strength Verdict: <span id="strengthText">None</span> (<span id="scoreVal">0</span>/5)</h3>
+                <span class="crack-estimate-badge" id="crackTimeBadge">Est. Crack Time: Not Available</span>
+              </div>
+            </div>
+            <div class="entropy-details" id="entropyWrap" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">
+              Entropy: <span id="entropyVal" style="color: var(--cyan-400); font-weight: 700;">0 bits</span>
+            </div>
+          </div>
+
+          <!-- Multi-Segment Glowing Progress Bar -->
+          <div class="strength-meter-bar" id="strengthMeter">
+            <div class="meter-segment" id="seg-1"></div>
+            <div class="meter-segment" id="seg-2"></div>
+            <div class="meter-segment" id="seg-3"></div>
+            <div class="meter-segment" id="seg-4"></div>
+            <div class="meter-segment" id="seg-5"></div>
+          </div>
+
+          <!-- Requirements Matrix -->
+          <div class="checklist-grid">
+            <div class="checklist-item" id="req-upper"><span>Uppercase (A-Z)</span> <span id="icon-upper">✗</span></div>
+            <div class="checklist-item" id="req-lower"><span>Lowercase (a-z)</span> <span id="icon-lower">✗</span></div>
+            <div class="checklist-item" id="req-digit"><span>Numbers (0-9)</span> <span id="icon-digit">✗</span></div>
+            <div class="checklist-item" id="req-special"><span>Symbols (!@#$)</span> <span id="icon-special">✗</span></div>
+            <div class="checklist-item" id="req-length"><span>Length (≥8 chars)</span> <span id="icon-length">✗</span></div>
+          </div>
+
+          <!-- AI / Security Recommendations -->
+          <div class="suggestions-container" id="suggestionsContainer" style="display: none;">
+            <h4 id="suggestionsHeader">Security Recommendations:</h4>
+            <ul id="suggestionsList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GENERATOR SECTION -->
+    <section id="generator" class="page-section">
+      <div class="card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Entropy Password Generator</h2>
+            <p>Generate high-entropy, mathematically unpredictable passwords based on your custom security requirements.</p>
+          </div>
+        </div>
+
+        <div class="generator-output">
+          <input type="text" id="generatedPassword" readonly placeholder="Click Generate to create key...">
+          <button class="copy-btn" id="copyBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: -2px; margin-right: 4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+
+        <div class="options-group">
+          <!-- Preset buttons -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+            <span style="font-size: 0.85rem; color: var(--text-muted); align-self: center; margin-right: 4px;">Presets:</span>
+            <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.82rem;" onclick="applyPreset('strong')">High Security (16)</button>
+            <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.82rem;" onclick="applyPreset('max')">Max Sentinel (24)</button>
+            <button type="button" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.82rem;" onclick="applyPreset('pin')">Numeric PIN (6)</button>
+          </div>
+
+          <div class="option-item">
+            <label for="lengthRange">Password Length: <span id="lengthVal" style="color: var(--cyan-400); font-weight: 700; font-family: var(--font-mono);">16</span></label>
+            <input type="range" id="lengthRange" min="6" max="36" value="16">
+          </div>
+          <div class="option-item">
+            <label for="includeUppercase">Include Uppercase (A-Z)</label>
+            <input type="checkbox" id="includeUppercase" checked>
+          </div>
+          <div class="option-item">
+            <label for="includeNumbers">Include Numbers (0-9)</label>
+            <input type="checkbox" id="includeNumbers" checked>
+          </div>
+          <div class="option-item">
+            <label for="includeSymbols">Include Symbols (!@#$%^&amp;*)</label>
+            <input type="checkbox" id="includeSymbols" checked>
+          </div>
+          <div class="option-item">
+            <label for="excludeSimilar">Exclude Ambiguous (l, 1, I, O, 0)</label>
+            <input type="checkbox" id="excludeSimilar">
+          </div>
+        </div>
+
+        <button class="btn full-width" id="generateBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Generate Unbreakable Password
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. AUDIT LOG & HISTORY SECTION -->
+    <section id="history" class="page-section">
+      <div class="card">
+        <div class="card-header-bar">
+          <div>
+            <h2>Evaluation Audit Log</h2>
+            <p>Review recent password evaluations stored in the SecurePass database.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="loadEvaluationHistory()" style="padding: 8px 14px; font-size: 0.85rem;">
+            🔄 Refresh Log
+          </button>
+        </div>
+
+        <div class="history-table-wrap">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Checks Passed</th>
+                <th>Timestamp</th>
+                <th>Recommendations</th>
+              </tr>
+            </thead>
+            <tbody id="historyTableBody">
+              <tr>
+                <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 24px;">Loading evaluation records...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DEDICATED FAQ PAGE -->
+    <section id="faq" class="page-section">
+      <div class="faq-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Learn about entropy algorithms, brute-force mathematics, and password security heuristics.</p>
+      </div>
+
+      <div class="faq-category">
+        <h2 class="faq-category-title">⚙️ Password Generator FAQs</h2>
+        <div class="faq-item">
+          <h3>1. How does the password generator create random passwords?</h3>
+          <p>It utilizes cryptographically secure pseudorandom number generators (CSPRNG) via the Web Cryptography API (`crypto.getRandomValues`) to draw unpredictably from character sets, ensuring immunity against algorithmic replay attacks.</p>
+        </div>
+        <div class="faq-item">
+          <h3>2. Are generated passwords saved on any server?</h3>
+          <p>No. Passwords generated in the Generator module remain strictly ephemeral inside your browser's execution memory. They are never transmitted, logged, or retained.</p>
+        </div>
+        <div class="faq-item">
+          <h3>3. Why is character diversity important in generated passwords?</h3>
+          <p>Including numbers, symbols, and mixed cases expands the character pool (entropy). This makes automated guessing exponentially more difficult for cracking tools.</p>
+        </div>
+        <div class="faq-item">
+          <h3>4. What length should I choose for high security?</h3>
+          <p>We recommend a minimum length of 16 characters. A 16-character password with full character variety takes billions of years to brute-force with modern GPU clusters.</p>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h2 class="faq-category-title">🛡️ Security Checker FAQs</h2>
+        <div class="faq-item">
+          <h3>1. What is a Brute Force Attack?</h3>
+          <p>A brute force attack is an automated method where attackers submit thousands or millions of password combinations per second until the correct one is guessed.</p>
+        </div>
+        <div class="faq-item">
+          <h3>2. What is a Dictionary Attack?</h3>
+          <p>A dictionary attack tests pre-compiled lists of standard vocabulary words, common phrases, or leaked password databases instead of random characters.</p>
+        </div>
+        <div class="faq-item">
+          <h3>3. How does the crack-time estimator work?</h3>
+          <p>It calculates password entropy in bits using the formula <code>E = L * log2(R)</code> (Length * log2(Character Pool)), then models a cracking rig performing 100 billion guesses per second to project realistic cracking duration.</p>
+        </div>
+        <div class="faq-item">
+          <h3>4. Why should I avoid reusing passwords across multiple sites?</h3>
+          <p>If one website gets hacked in a data breach, attackers attempt those leaked credentials on hundreds of other popular platforms in automated Credential Stuffing attacks.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span>✓</span>
+    <span id="toastMsg">Password copied to clipboard!</span>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SecurePass Sentinel. Zero-Knowledge Credential Security Suite.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyCharm / IDEs
+.idea/
+.vscode/
+
+# SQLite databases (local instance)
+password_evaluations.db
+
+# OS generated files
+.DS_Store
+Thumbs.db
