@@ -19,11 +19,3 @@ A modern web application designed to help users check, generate, and manage secu
 * **Hosting & Deployment:** Vercel
 
 ---
-
-## Local Development Setup
-
-If you want to run this project locally, follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Meenu307/SecurePass-Sentinel.git](https://github.com/Meenu307/SecurePass-Sentinel.git)
